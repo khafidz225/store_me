@@ -1,9 +1,25 @@
 part of 'auth_bloc.dart';
 
-abstract class AuthState extends Equatable {
-  const AuthState();  
+class AuthState {
+  ConditionStateEnum? conditionStateEnum;
+  String? errorMessage;
 
-  @override
-  List<Object> get props => [];
+  AuthState({
+    this.conditionStateEnum,
+    this.errorMessage,
+  });
+
+  AuthState copyWith({
+    ConditionStateEnum? conditionStateEnum,
+    String? errorMessage,
+  }) =>
+      AuthState(
+        conditionStateEnum: conditionStateEnum ?? this.conditionStateEnum,
+        errorMessage: errorMessage ?? this.errorMessage,
+      );
+
+  List<Object?> get props => [
+        conditionStateEnum,
+        errorMessage,
+      ];
 }
-class AuthInitial extends AuthState {}

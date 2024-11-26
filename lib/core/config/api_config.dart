@@ -1,6 +1,8 @@
 class ApiConfig {
-  static const String baseUrl = 'https://api.pexels.com/v1';
+  static const String baseUrl = 'https://fakestoreapi.com';
 
-  static const String searchPhoto = '/search';
-  static const String curatedPhoto = '/curated';
+  static const String login = '/auth/login';
+  static const String user = '/users';
+  static const String products = '/products';
+  static const String categories = '/products/categories';
 }

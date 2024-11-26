@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Store Me',
       debugShowCheckedModeBanner: false,
       routerConfig: GoRouter(
-        initialLocation: Routes.HOME,
+        initialLocation: Routes.SPLASH_SCREEN,
         routes: AppPages.routes,
       ),
       theme: ThemeData(
