@@ -19,8 +19,6 @@ class HomeCartEntities {
   }
 
   HomeCartEntities copyWith({List<HomeProductItemEntities>? items}) {
-    print(
-        'Copying HomeCartEntities: original items=${this.items.length}, new items=${items?.length}');
     return HomeCartEntities(
       items: items ?? this.items,
     );

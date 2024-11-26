@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:store_me/features/auth/presentation/pages/login_page.dart';
 import 'package:store_me/features/auth/presentation/pages/splash_screen_page.dart';
 import 'package:store_me/features/home/presentation/pages/cart_page.dart';
@@ -44,8 +43,6 @@ class AppPages {
     GoRoute(
         path: _Paths.HOME,
         pageBuilder: (context, state) {
-          final extra = state.extra as bool?;
-          print('Extra: $extra');
           return NoTransitionPage(
             key: state.pageKey,
             child: MultiBlocProvider(providers: [

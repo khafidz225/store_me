@@ -2,7 +2,7 @@ import 'package:store_me/core/error/failure.dart';
 import 'package:store_me/core/service/network_service.dart';
 import 'package:store_me/features/auth/data/models/response/get_res_all_user.dart';
 import 'package:store_me/features/home/data/datasources/home_remote_datasource.dart';
-import 'package:store_me/features/home/data/models/response/get_res_photos_model.dart';
+
 import 'package:dartz/dartz.dart';
 import 'package:store_me/features/home/data/models/response/get_res_product_model.dart';
 import 'package:store_me/features/home/domain/entities/home_init_entities.dart';

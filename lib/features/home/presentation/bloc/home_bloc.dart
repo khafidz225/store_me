@@ -17,7 +17,7 @@ import '../../../../core/error/failure.dart';
 import '../../../../core/error/triger_snackbar_error.dart';
 import '../../../../core/widget/snackbar_custom.dart';
 import '../../../auth/data/models/response/get_res_all_user.dart';
-import '../../data/models/response/get_res_photos_model.dart';
+
 import '../../domain/entities/home_cart_entities.dart';
 
 part 'home_event.dart';
@@ -38,9 +38,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future homeInit(HomeInitEvent event, Emitter<HomeState> emit) async {
-    print('HOME INIT1 ${event.isRender}');
     if (event.isRender) {
-      print('HOME INIT2 ${event.isRender}');
       emit(state.copyWith(conditionStateEnum: ConditionStateEnum.loading));
       final response = await locator<HomeUsecase>().getHomeInit();
       response.fold(
@@ -75,7 +73,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           }
         },
         (data) {
-          print('BERHASIL HOME INIT');
           emit(state.copyWith(
               conditionStateEnum: ConditionStateEnum.success,
               valueListCategory: data.category,
@@ -131,7 +128,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         }
       },
       (data) {
-        print('BERHASIL Home Change Category');
         emit(state.copyWith(
           conditionStateEnum: ConditionStateEnum.success,
           valueListProduct: data,
@@ -178,7 +174,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           return item;
         }).toList();
 
-        print('Updated Items (Existing): ${updatedItems?.length}');
         emit(state.copyWith(
             valueCart: state.valueCart?.copyWith(items: updatedItems)));
       } else {
@@ -186,17 +181,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         final updatedItems = List<HomeProductItemEntities>.from(cart.items)
           ..add(HomeProductItemEntities(product: event.value, count: 1));
 
-        print('Updated Items (New): ${updatedItems.length}');
         emit(state.copyWith(valueCart: cart.copyWith(items: updatedItems)));
       }
 
-      print('CART Setelah Emit: ${state.valueCart?.items.length}');
       SnackbarCustom(context: event.context).success(
           title: 'Successfully added Product',
           desc: 'Successfully added Product to Cart');
       event.context.push(Routes.HOME);
     } catch (e) {
-      print('Error Add Cart: $e');
+      debugPrint('Error Add Cart: $e');
     }
   }
 

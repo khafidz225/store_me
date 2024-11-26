@@ -37,8 +37,6 @@ class HomeState {
     String? activeCategory,
     int? indexBottomNavigation,
   }) {
-    print(
-        'Copying HomeState: original valueCart=${this.valueCart?.items.length}, new valueCart=${valueCart?.items.length}');
     return HomeState(
       conditionStateEnum: conditionStateEnum ?? this.conditionStateEnum,
       errorMessage: errorMessage ?? this.errorMessage,

@@ -7,7 +7,6 @@ import '../../../../core/config/api_config.dart';
 import '../../../../core/di/depedency_injection.dart';
 import '../../../../core/error/exception.dart';
 import '../../../auth/data/models/response/get_res_all_user.dart';
-import '../models/response/get_res_photos_model.dart';
 
 abstract class HomeRemoteDatasource {
   Future<List<GetResProductModel>> getProduct();
@@ -46,14 +45,11 @@ class HomeRemoteDatasourceImpl extends HomeRemoteDatasource {
   Future<List<GetResProductModel>> getProductFromCategory(
       {required String category}) async {
     try {
-      print('Tag: ${ApiConfig.productFromCategory}/$category');
       final response = await locator<Dio>()
           .get('${ApiConfig.productFromCategory}/$category');
       if (response.statusCode != 200) {
         return Future.error(GeneralException(message: response.data));
       }
-
-      print('Response data: ${response.data}');
 
       if (response.data is List) {
         List<GetResProductModel> valueResponseModel = (response.data as List)

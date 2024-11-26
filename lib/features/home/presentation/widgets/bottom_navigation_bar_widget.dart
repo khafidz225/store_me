@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:store_me/core/di/depedency_injection.dart';
 
 import '../../../../core/constant/constant.dart';
-import '../../../../core/router/app_pages.dart';
 import '../bloc/home_bloc.dart';
 
 class BottomNavigationBarWidget extends StatelessWidget {

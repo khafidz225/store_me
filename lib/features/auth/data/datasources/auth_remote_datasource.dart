@@ -45,11 +45,6 @@ class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
             .map((json) => GetResAllUser.fromJson(json as Map<String, dynamic>))
             .toList();
 
-        // Tampilkan hasil
-        for (var user in valueResponseModel) {
-          print(
-              'ID: ${user.id}, Name: ${user.name.firstname} ${user.name.lastname}');
-        }
         return valueResponseModel;
       } else {
         return Future.error(

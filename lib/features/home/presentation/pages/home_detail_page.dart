@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/di/depedency_injection.dart';
 import '../../../../core/service/image_cache_service.dart';
@@ -141,20 +140,6 @@ class HomeDetailPage extends StatelessWidget {
                       style: const TextStyle(color: Colors.grey),
                     ),
                   )
-                  // OutlinedButton(
-                  //     style: OutlinedButton.styleFrom(
-                  //         side: BorderSide(
-                  //             color: Color(int.parse(
-                  //                 '0xff${state.valuePhotoDetail?.avgColor.substring(1)}')))),
-                  //     onPressed: () async {
-                  //       await launchUrl(Uri.parse(state.valuePhotoDetail!.url));
-                  //     },
-                  //     child: Text(
-                  //       'Profile Photographer',
-                  //       style: TextStyle(
-                  //           color: Color(int.parse(
-                  //               '0xff${state.valuePhotoDetail?.avgColor.substring(1)}'))),
-                  //     ))
                 ],
               ),
             ),

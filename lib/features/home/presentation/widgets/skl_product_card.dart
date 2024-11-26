@@ -1,8 +1,6 @@
 import 'package:card_loading/card_loading.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/models/response/get_res_product_model.dart';
-
 class SklProductCard extends StatelessWidget {
   const SklProductCard({super.key});
 

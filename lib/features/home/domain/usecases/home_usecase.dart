@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../auth/data/models/response/get_res_all_user.dart';
-import '../../data/models/response/get_res_photos_model.dart';
+
 import '../../data/models/response/get_res_product_model.dart';
 
 class HomeUsecase {
