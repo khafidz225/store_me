@@ -6,12 +6,16 @@ class ImageCacheService {
   static final ImageCacheService _instance = ImageCacheService._instance;
   factory ImageCacheService() => _instance;
 
-  static Widget getNetworkImage(String imageUrl) {
+  static Widget getNetworkImage(
+      {required String imageUrl, double? width, double? height}) {
     return CachedNetworkImage(
       imageUrl: imageUrl,
+      width: width,
+      height: height,
       placeholder: (context, url) => CardLoading(
-        height: 200,
-        borderRadius: BorderRadius.circular(16),
+        width: width,
+        height: height ?? 150,
+        borderRadius: BorderRadius.circular(20),
       ),
       errorWidget: (context, url, error) => const Icon(Icons.error),
       fit: BoxFit.cover,

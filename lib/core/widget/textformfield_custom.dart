@@ -210,7 +210,7 @@ class _TextFormFieldCustomState extends State<TextFormFieldCustom> {
                       borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(20)),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.blue),
+                      borderSide: BorderSide(color: Colors.grey.shade200),
                       borderRadius: BorderRadius.circular(20)),
                 ),
               ),

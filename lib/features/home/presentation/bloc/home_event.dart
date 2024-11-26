@@ -7,29 +7,29 @@ abstract class HomeEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class HomeGetPhotosEvent extends HomeEvent {
+class HomeInitEvent extends HomeEvent {
   BuildContext context;
   bool isRender;
-  HomeGetPhotosEvent({required this.context, required this.isRender});
+  HomeInitEvent({required this.context, required this.isRender});
   @override
   List<Object> get props => [context, isRender];
 }
 
-class HomeLoadMoreEvent extends HomeEvent {
+class HomeChangeCategoryEvent extends HomeEvent {
   BuildContext context;
-
-  HomeLoadMoreEvent({required this.context});
+  String activeCategory;
+  HomeChangeCategoryEvent(
+      {required this.context, required this.activeCategory});
   @override
-  List<Object> get props => [context];
+  List<Object> get props => [context, activeCategory];
 }
 
-class HomeGetPhotoDetailEvent extends HomeEvent {
+class HomeProductDetailEvent extends HomeEvent {
   BuildContext context;
-  Photo valuePhotoDetail;
-  HomeGetPhotoDetailEvent(
-      {required this.context, required this.valuePhotoDetail});
+  GetResProductModel productDetail;
+  HomeProductDetailEvent({required this.context, required this.productDetail});
   @override
-  List<Object> get props => [context, valuePhotoDetail];
+  List<Object> get props => [context, productDetail];
 }
 
 class HomeDetailScrollPositionChanged extends HomeEvent {
@@ -39,4 +39,50 @@ class HomeDetailScrollPositionChanged extends HomeEvent {
 
   @override
   List<Object> get props => [offset];
+}
+
+class HomeChangeBottomNavigationEvent extends HomeEvent {
+  final BuildContext context;
+  final int index;
+
+  const HomeChangeBottomNavigationEvent(
+      {required this.context, required this.index});
+  @override
+  List<Object> get props => [context, index];
+}
+
+class HomeAddCartEvent extends HomeEvent {
+  final BuildContext context;
+  final GetResProductModel value;
+
+  const HomeAddCartEvent({required this.context, required this.value});
+  @override
+  List<Object> get props => [context, value];
+}
+
+class HomeUpdateCartEvent extends HomeEvent {
+  final BuildContext context;
+  final GetResProductModel value;
+  final int count;
+
+  const HomeUpdateCartEvent(
+      {required this.context, required this.value, required this.count});
+  @override
+  List<Object> get props => [context, value];
+}
+
+class HomeCheckoutCartEvent extends HomeEvent {
+  final BuildContext context;
+
+  const HomeCheckoutCartEvent({required this.context});
+  @override
+  List<Object> get props => [context];
+}
+
+class HomeLogoutEvent extends HomeEvent {
+  final BuildContext context;
+
+  const HomeLogoutEvent({required this.context});
+  @override
+  List<Object> get props => [context];
 }

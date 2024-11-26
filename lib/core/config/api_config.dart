@@ -5,4 +5,5 @@ class ApiConfig {
   static const String user = '/users';
   static const String products = '/products';
   static const String categories = '/products/categories';
+  static const String productFromCategory = '/products/category';
 }

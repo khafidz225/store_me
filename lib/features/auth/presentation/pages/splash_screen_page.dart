@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store_me/core/enum/key_local_storage_enum.dart';
 import '../../../../application_info.dart';
+import '../../../../core/di/depedency_injection.dart';
 import '../../../../core/router/app_pages.dart';
+import '../../../home/presentation/bloc/home_bloc.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
@@ -37,7 +39,11 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       if (prefs.getString(KeyLocalStorageEnum.token.name) == null) {
         if (mounted) context.go(Routes.LOGIN);
       } else {
-        if (mounted) context.go(Routes.HOME);
+        if (mounted) {
+          locator<HomeBloc>()
+              .add(HomeInitEvent(context: context, isRender: true));
+          context.go(Routes.HOME);
+        }
       }
     } catch (e) {
       if (mounted) context.go(Routes.LOGIN);

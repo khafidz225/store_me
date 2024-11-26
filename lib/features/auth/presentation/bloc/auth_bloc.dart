@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_me/features/auth/domain/usecases/auth_usecase.dart';
+import 'package:store_me/features/home/presentation/bloc/home_bloc.dart';
 
 import '../../../../core/di/depedency_injection.dart';
 import '../../../../core/enum/condition_state_enum.dart';
@@ -61,6 +62,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ));
         SnackbarCustom(context: event.context)
             .success(title: 'Success Login', desc: 'Welcome to Store Me');
+        locator<HomeBloc>()
+            .add(HomeInitEvent(context: event.context, isRender: true));
         event.context.go(Routes.HOME);
       },
     );
